@@ -1,0 +1,35 @@
+repos:
+  # a set of useful Python-based pre-commit hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      - id: trailing-whitespace
+      - id: check-toml
+      - id: check-yaml
+      - id: check-json
+      - id: check-merge-conflict
+        args: ["--assume-in-merge"]
+      - id: check-added-large-files
+        args: ["--maxkb=10240"]
+      - id: debug-statements
+      - id: detect-private-key
+      - id: pretty-format-json
+        args: ["--autofix"]
+
+  # black for python autoformatting
+  - repo: https://github.com/psf/black
+    rev: 22.3.0
+    hooks:
+      - id: black
+
+  # ruff for Python linting
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: "v0.0.270"
+    hooks:
+      - id: ruff
+
+  # shellcheck-py for linting shell files
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.9.0.5
+    hooks:
+      - id: shellcheck
